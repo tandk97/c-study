@@ -1,0 +1,55 @@
+5.4 함수 원형 선언하기
+
+함수 호출할 때 기억해야 할 것
+컴파일러는 소스코드를 기계어로 번역할 때, 코드의 위쪽에서 아래쪽으로 내용을 읽으며 번역
+
+
+1. 함수 원형
+프로그래밍을 하다 보면 두 함수가 서로를 호출하는 경우도 생김
+a. 두 함수가 서로를 호출하는 경우에는 피호출자가 항상 호출자의 위쪽에 놓을 수 없기 때문에 함수 원형(Function Prototype)을 사용해서 해결
+b. 함수의 원형은 함수 이름, 매개 변수, 반환 자료형을 포함하는 표현식이다.
+
+호출자가 아래에 있는 경우
+int Sum(int value1, int value2) -> 피호출자
+{
+	int result = value1 + value2;
+	return result;
+}
+void main() -> 호출자
+{
+	int s = Sum(a,b);
+}
+컴파일러가 호출하는 명령을 기계어로 번역할 때 피호출자의 매개 변수와 반환형을 이미 알고 있기 때문에 정상 번역
+
+호출자가 위에 있는 경우
+void main() -> 호출자
+{
+	int s = Sum(a,b);
+}
+int Sum(int value1, int value2) -> 피호출자
+{
+	int result = value1 + value2;
+	return result;
+}
+main 함수에서 Sum 함수를 호출하는 시점에 아직 컴파일러가 Sum 함수를 알지 못하기 때문에 오류 발생
+
+함수 원형 선언
+int Sum(int value1, int value2); -> 함수 원형 선언
+void main()
+{
+	int s = Sum(a,b);
+}
+int Sum(int value1, int value2)
+{
+	int result = value1 + value2;
+	return result;
+}
+함수를 정의한다 : 함수를 구현하는 행위
+함수를 선언한다 : 함수 원형을 선언
+
+함수 원형의 매개 변수 생략 가능
+a. 함수의 호출 구조를 만들 때 매개 변수 정보는 개수나 자료형만 필요하기 떄문에 매개 변수 이름은 생략 가능
+b. 하지만 매개 변수 이름을 생략하면 프로그래머가 함수의 원형만 보고 매개 변수의 의미 파악이 불가능 해진다. -> 매개 변수 이름을 생략하지 않는 것이 좋다
+
+함수 원형의 매개 변수 이름 생략 예시
+int Sum(int, int);
