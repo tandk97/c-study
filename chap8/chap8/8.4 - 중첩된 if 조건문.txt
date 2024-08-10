@@ -1,0 +1,28 @@
+8.4 중첩된 if 조건문
+
+1. 중첩된 if 조건문
+a. 조건문 중첩 : if 조건문에 따르는 명령문 안에 조건문이 포함된 형태
+b. 중첩의 개수는 제한이 없음
+c. 중첩된 조건문의 개수가 많으면 프로그램의 수행능력과 이해도가 떨어짐
+
+
+2. 중첩된 if~else~조건문
+a. if~else~문은 하나의 문법이기 때문에 1개의 문장으로 처리가능
+b. 위에서 아래 쪽으로 수식의 참과 거짓을 판단, 사용 빈도가 높은 조건 수식을 위쪽에 사용
+c. if~else if~else는 구조상 1개의 명령문만 수행된다.
+
+#include <stdio.h>
+void main()
+{
+	int score=86;
+	char grade;
+
+	if(score>=90) grade = 'A';
+	else if(score>=80) grade = 'B';
+	else if(score>=80) grade = 'C';
+	else if(score>=80) grade = 'D';
+	else grade = 'F'
+	printf("점수 : %d, 등급 : %c", score, grade);
+}
+
+순서도는 nested_if_conditional_statement.png 참조

@@ -1,0 +1,108 @@
+8.3 if~else~조건문
+
+1. if~else~조건문
+a. 서로 반대되는 조건을 한 번에 표현하는 형식
+
+if(data==10) data=0;
+if(data!=10) data++;
+---->
+if(data==10) data=0;
+else data++;
+
+b. 간결해진 소스 코드로 인해 수행 속도가 좋아지고 프로그램의 이해도가 증가하게 된다.
+c. 단일 문장, 복합 문장 모두 사용 가능
+d. if문이 단일 문장이면 else문도 반드시 단일 ㅁ누장이어야 한다거나, if문이 복합 문장이면 반드시 else문 복합 문장이 필요하지 않다.
+
+명령문1;						명령문1;
+if(조건 수식){				if(조건 수식) 명령문2;
+	명령문2;					else{
+	명령문3;						명령문3;
+} else 명령문4;					명령문4;
+명령문5;						}
+							명령문5;
+
+위 처럼 섞어서 사용 가능
+
+단일 if~else~조건문
+명령문1;
+if(조건 수식) 명령문 2;
+else 명령문 3;
+명령문4;
+
+예시 코드
+#include <stdio.h>
+
+void main()
+{
+	int data =5;/*data=2를 넣으면 다른 결과*/
+	if(data>3) printf("data는 3보다 큰 수 입니다\n");
+	else printf("data는 3보다 작거나 같은 수 입니다\n");
+	printf("작업 종료\n");
+}
+
+순서도는 if~else~-single_statement.png 참조
+
+복합 if~else~문
+명령문1;
+if(조건 수식){
+	명령문2;
+	명령문3;
+}else{
+	명령문4;
+	명령문5;
+}
+명령문6;
+
+예시 코드
+#include <stdio.h>
+
+void main()
+{
+	int score = 92;/*명령문 1-1, 1-2*/
+	char grade;
+	if(score>=90){
+		grade = 'A';/*명령문 2*/
+		printf("점수는 %d이고 등급은 %c입니다\n", score, grade);/*명령문3*/
+	}else{ 
+		grade = 'B';/*명령문4*/
+		printf("점수는 %d이고 등급은 %c입니다\n", score, grade);/*명령문5*/
+	}
+	printf("작업 종료\n");/*명령문6*/
+}
+
+순서도는 if~else~-compound_statement.png 참조
+
+
+2. 조건 수식 연산자(Conditional-expression Operator)
+a. if~else~조건문과 비슷한 형태를 가지는 연산 수식
+b. 단일 문장으로 구성된 명령문만 사용 가능
+c. 연산자이므로 명령의 결과 값을 반환
+d. 조건 수식의 결과 값이 참이면 수식1의 결과 값을 사용
+e. 조건 수식의 결과 값이 거짓이면 수식2의 결과 값을 사용
+
+결과 값 = (조건 수식)? 수식1:수식2;
+					  참		거짓
+
+
+3. 조건 수식 연산자와 if~else~조건문 비교
+int value = 50000;
+double point;
+value 변수의 값을 10000과 비교하여 조건의 결과에 따라 처리
+if(value>=10000) point = value*0.1;
+else point = value * 0.05;
+point = (value>=10000)? value*0.1:value*0.05; --- 조건 수식 연산자
+
+조건 수식 연산자의 특성을 잘못 활용한 예
+(value>=10000)? point=value*0.1:value*0.05;
+오류가 발생하지는 않지만 잘못된 표현
+조건 수식 연산자는 연산 결과를 최종 반환하는 형태이기 때문에 위와 같이 적으면 조건 수식 연산자가 최종 반환하는 값을 사용하지 않는 형태가 되어버리기 때문
+
+조건 수식 연산자 활용 예제
+if(data>5) return 1;
+else return 0;
+return(data>5)? 1:0 --- 조건 수식 연산자
+
+조건 수식 연산자의 단점
+a. 연산의 결과 값을 반환하는 구조이므로 수식을 단일 문장으로만 표현
+b. {}중괄호를 사용하느 복합 문장은 사용 불가
+c. 단순한 수식 표현만 사용 가능
