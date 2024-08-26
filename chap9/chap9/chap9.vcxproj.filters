@@ -18,9 +18,18 @@
     <Text Include="9.1 - 반복문의 기본 구조와 for반복문.txt">
       <Filter>소스 파일</Filter>
     </Text>
+    <Text Include="9.2 - while 반복문.txt">
+      <Filter>소스 파일</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="for.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="while.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="9.3 - 반복문 구성 방법.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
