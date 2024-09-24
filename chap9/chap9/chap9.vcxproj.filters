@@ -32,5 +32,11 @@
     <ClCompile Include="9.3 - 반복문 구성 방법.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9.4 - 중첩 반복문.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="9.5 - break와 continue 제어문.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
